@@ -10,53 +10,105 @@ export const displaySlice = createSlice({
     },
     reducers: {
         add: state => {
-            state.mathOperations.push(`${state.displayNumber} + `);
-            state.result += state.displayNumber;
-            state.displayNumber = state.result;
-            state.nextOperationFlag = true;
+            //
         },
         subtract: state => {
-            state.mathOperations.push(`${state.displayNumber} - `);
-            state.result -= state.displayNumber;
-            state.displayNumber = state.result;
-            state.nextOperationFlag = true;
+            //
         },
         multiply: state => {
-            state.mathOperations.push(`${state.displayNumber} * `);
-            state.result *= state.displayNumber;
-            state.displayNumber = state.result;
-            state.nextOperationFlag = true;
+            //
         },
         divide: state => {
-            state.mathOperations.push(`${state.displayNumber} / `);
             if (state.displayNumber) {
-                state.result /= state.displayNumber;
-                state.displayNumber = state.result;
-                state.nextOperationFlag = true;
+                //
             } else {
                 state.displayNumber = 'Cannot divide by zero!!!';
             }
         },
         negative: state => {
-            state.mathOperations.push('(-1) * ');
-            state.result = -state.displayNumber;
-            state.displayNumber = state.result;
-            state.nextOperationFlag = true;
+            //
         },
         percentage: state => {
-            state.mathOperations.push('%');
-            state.values.push(action.payload.value);
-            state.result /= action.payload.value;
+            //
         },
-        equals: (state) => {
-            state.mathOperations.push('/');
-            state.values.push(action.payload.value);
-            state.result /= action.payload.value;
+        equals: state => {
+            //
         },
     },
-  });
+});
 
-  export const resultCalc = arr 
+export const resultCalc = arr => {
+    let result = convertPercent(arr[0]);
+    let tempSum = 0;
+    for (let i = 1; i < arr.length; i += 2) {
+        arr[i + 1] = convertPercent(arr[i + 1]);
+        switch (arr[i]) {
+            case '+':
+                if (arr[i + 2] === '*' || arr[i + 2] === '/') {
+                    tempSum = result;
+                    result = +arr[i + 1];
+                    break;
+                }
+                result += +arr[i + 1];
+                break;
+            case '-':
+                if (arr[i + 2] === '*' || arr[i + 2] === '/') {
+                    tempSum = result;
+                    result = +arr[i + 1];
+                    break;
+                }
+                result -= +arr[i + 1];
+                break;
+            case '*':
+                result *= arr[i + 1];
+                if (arr[i - 2] === '-') {
+                    result = -result;
+                }
+                break;
+            case '/':
+                if (!+arr[i + 1]) {
+                    return ' Cannot divide by zero! ';
+                }
+                result /= +arr[i + 1];
+                if (arr[i - 2] === '-') {
+                    result = -result;
+                }
+                break;
+            default:
+                return ' Unknown math operations! ';
+        }
+        if (arr[i + 2] !== '*' && arr[i + 2] !== '/') {
+            result += tempSum;
+            tempSum = 0;
+        }
+    }
+    return result;
+};
 
-  export const { add, subtract, multiply, divide, negative, percentage, equals } = displaySlice.actions;
-  export default displaySlice.reducer;
+const convertPercent = val => {
+    if (val && isNaN(val)) {
+        if (val.slice(-1) === '%') {
+            console.log(val.slice(0, -1));
+            val = +val.slice(0, -1) / 100;
+            console.log(val);
+            return val;
+        } else {
+            return ' Cannot calculate result from NaN! ';
+        }
+    }
+    return +val;
+};
+
+export const {
+    add,
+    subtract,
+    multiply,
+    divide,
+    negative,
+    percentage,
+    equals,
+} = displaySlice.actions;
+export default displaySlice.reducer;
+
+export const selectOperations = state => state.mathOperations;
+export const selectResult = state => state.result;
