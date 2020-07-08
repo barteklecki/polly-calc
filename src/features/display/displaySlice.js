@@ -53,10 +53,14 @@ export const displaySlice = createSlice({
             state.nextOperationFlag = false;
         },
         addComma: state => {
-            console.log('[dispatch: comma]');
-            let { displayNumber } = state;
-            if (displayNumber.indexOf('.') === -1) {
-                displayNumber += '.';
+            if (state.displayNumber.indexOf('.') === -1) {
+                let perc = '';
+                if( state.displayNumber.slice(-1) === '%' ) {
+                    perc = '%';
+                    state.displayNumber = state.displayNumber.slice(0, -1);
+                }
+                state.displayNumber += '.';
+                state.displayNumber += perc;
             }
         },
         addDigit: (state, action) => {
