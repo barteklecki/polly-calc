@@ -43,7 +43,11 @@ export const displaySlice = createSlice({
             console.log('[dispatch: %]');
         },
         equals: state => {
-            //
+            state.mathOperations.push(state.displayNumber);
+            state.result = resultCalc(state.mathOperations);
+            state.displayNumber = state.result;
+            state.mathOperations = [];
+            state.nextOperationFlag = false;
         },
         addComma: state => {
             console.log('[dispatch: comma]');
@@ -57,7 +61,6 @@ export const displaySlice = createSlice({
                 state.displayNumber = '';
                 state.nextOperationFlag = false;
             }
-            console.log('[dispatch: digit]', state.displayNumber, action.payload);
             state.displayNumber = +(state.displayNumber + action.payload) + '';
             return
         },
