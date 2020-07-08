@@ -10,20 +10,32 @@ export const displaySlice = createSlice({
     },
     reducers: {
         add: state => {
-            //
+            let { mathOperations, result, displayNumber } = state;
+            mathOperations.push(displayNumber);
+            result = resultCalc(mathOperations);
+            displayNumber = result+'';
+            mathOperations.push('+');
         },
         subtract: state => {
-            //
+            let { mathOperations, result, displayNumber } = state;
+            mathOperations.push(displayNumber);
+            result = resultCalc(mathOperations);
+            displayNumber = result+'';
+            mathOperations.push('-');
         },
         multiply: state => {
-            //
+            let { mathOperations, result, displayNumber } = state;
+            mathOperations.push(displayNumber);
+            result = resultCalc(mathOperations);
+            displayNumber = result+'';
+            mathOperations.push('*');
         },
         divide: state => {
-            if (state.displayNumber) {
-                //
-            } else {
-                state.displayNumber = 'Cannot divide by zero!!!';
-            }
+            let { mathOperations, result, displayNumber } = state;
+            mathOperations.push(displayNumber);
+            result = resultCalc(mathOperations);
+            displayNumber = result+'';
+            mathOperations.push('/');
         },
         negative: state => {
             //
@@ -88,9 +100,7 @@ export const resultCalc = arr => {
 const convertPercent = val => {
     if (val && isNaN(val)) {
         if (val.slice(-1) === '%') {
-            console.log(val.slice(0, -1));
             val = +val.slice(0, -1) / 100;
-            console.log(val);
             return val;
         } else {
             return ' Cannot calculate result from NaN! ';
