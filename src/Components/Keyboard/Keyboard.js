@@ -10,7 +10,8 @@ import {
     percentage,
     equals,
     addComma,
-    addDigit
+    addDigit,
+    reset,
 } from '../../features/display/displaySlice';
 
 const Keyboard = () => {
@@ -20,7 +21,7 @@ const Keyboard = () => {
         <div>
             <button onClick={()=> dispatch(percentage())}> % </button>
             <button onClick={()=> dispatch(negative())}>+/-</button>
-            <button> C </button>
+            <button onClick={()=> dispatch(reset())}> C </button>
             <button onClick={()=> dispatch(divide())}> / </button>
             <br/>
             <button onClick={()=> dispatch(addDigit(7))}> 7 </button>

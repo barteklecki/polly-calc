@@ -64,6 +64,13 @@ export const displaySlice = createSlice({
             state.displayNumber = +(state.displayNumber + action.payload) + '';
             return
         },
+        reset: state => {
+            state.nextOperationFlag = false;
+            state.mathOperations = [];
+            state.result = 0;
+            state.displayNumber = '0';
+        },
+
     },
 });
 
@@ -137,6 +144,7 @@ export const {
     equals,
     addComma,
     addDigit,
+    reset,
 } = displaySlice.actions;
 export default displaySlice.reducer;
 
