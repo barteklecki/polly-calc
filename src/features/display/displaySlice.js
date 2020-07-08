@@ -36,7 +36,12 @@ export const displaySlice = createSlice({
             state.nextOperationFlag = true;
         },
         negative: state => {
-            state.displayNumber = -+state.displayNumber + '';
+            let perc = '';
+            if( state.displayNumber.slice(-1) === '%' ) {
+                perc = '%';
+                state.displayNumber = state.displayNumber.slice(0, -1);
+            }
+            state.displayNumber = -+state.displayNumber + perc;
         },
         percentage: state => {
             if ( state.displayNumber.slice( -1 ) !== '%' ) {
@@ -90,35 +95,35 @@ export const resultCalc = arr => {
     let result = convertPercent(arr[0]);
     let tempSum = 0;
     for (let i = 1; i < arr.length; i += 2) {
-        arr[i + 1] = convertPercent(arr[i + 1]);
+        let temp = convertPercent(arr[i + 1]);
         switch (arr[i]) {
             case '+':
                 if (arr[i + 2] === '*' || arr[i + 2] === '/') {
                     tempSum = result;
-                    result = +arr[i + 1];
+                    result = +temp;
                     break;
                 }
-                result += +arr[i + 1];
+                result += +temp;
                 break;
             case '-':
                 if (arr[i + 2] === '*' || arr[i + 2] === '/') {
                     tempSum = result;
-                    result = +arr[i + 1];
+                    result = +temp;
                     break;
                 }
-                result -= +arr[i + 1];
+                result -= +temp;
                 break;
             case '*':
-                result *= arr[i + 1];
+                result *= temp;
                 if (arr[i - 2] === '-') {
                     result = -result;
                 }
                 break;
             case '/':
-                if (!+arr[i + 1]) {
+                if (!+temp) {
                     return ' Cannot divide by zero! ';
                 }
-                result /= +arr[i + 1];
+                result /= +temp;
                 if (arr[i - 2] === '-') {
                     result = -result;
                 }
