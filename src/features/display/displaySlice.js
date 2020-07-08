@@ -10,33 +10,30 @@ export const displaySlice = createSlice({
     },
     reducers: {
         add: state => {
-            console.log('[dispatch: +]');
-            let { mathOperations, result, displayNumber } = state;
-            mathOperations.push(displayNumber);
-            result = resultCalc(mathOperations);
-            displayNumber = result + '';
-            mathOperations.push('+');
+            state.mathOperations.push(state.displayNumber);
+            state.result = resultCalc(state.mathOperations);
+            state.displayNumber = state.result + '';
+            state.mathOperations.push('+');
+            state.nextOperationFlag = true;
         },
         subtract: state => {
-            let { mathOperations, result, displayNumber } = state;
-            mathOperations.push(displayNumber);
-            result = resultCalc(mathOperations);
-            displayNumber = result + '';
-            mathOperations.push('-');
+            state.mathOperations.push(state.displayNumber);
+            state.result = resultCalc(state.mathOperations);
+            state.displayNumber = state.result + '';
+            state.mathOperations.push('-');
+            state.nextOperationFlag = true;
         },
         multiply: state => {
-            let { mathOperations, result, displayNumber } = state;
-            mathOperations.push(displayNumber);
-            result = resultCalc(mathOperations);
-            displayNumber = result + '';
-            mathOperations.push('*');
+            state.mathOperations.push(state.displayNumber);
+            state.result = resultCalc(state.mathOperations);
+            state.mathOperations.push('*');
+            state.nextOperationFlag = true;
         },
         divide: state => {
-            let { mathOperations, result, displayNumber } = state;
-            mathOperations.push(displayNumber);
-            result = resultCalc(mathOperations);
-            displayNumber = result + '';
-            mathOperations.push('/');
+            state.mathOperations.push(state.displayNumber);
+            state.result = resultCalc(state.mathOperations);
+            state.mathOperations.push('/');
+            state.nextOperationFlag = true;
         },
         negative: state => {
             state.displayNumber = -+state.displayNumber + '';
@@ -56,6 +53,10 @@ export const displaySlice = createSlice({
             }
         },
         addDigit: (state, action) => {
+            if(state.nextOperationFlag) {
+                state.displayNumber = '';
+                state.nextOperationFlag = false;
+            }
             console.log('[dispatch: digit]', state.displayNumber, action.payload);
             state.displayNumber = +(state.displayNumber + action.payload) + '';
             return
