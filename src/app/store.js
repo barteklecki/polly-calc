@@ -3,6 +3,6 @@ import displayReducer from '../features/display/displaySlice';
 
 export default configureStore({
   reducer: {
-    counter: displayReducer,
+    display: displayReducer,
   },
 });

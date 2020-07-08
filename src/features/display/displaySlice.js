@@ -4,7 +4,7 @@ export const displaySlice = createSlice({
     name: 'display',
     initialState: {
         nextOperationFlag: false,
-        mathOperations: [''],
+        mathOperations: [],
         result: 0,
         displayNumber: '0',
     },
@@ -110,5 +110,5 @@ export const {
 } = displaySlice.actions;
 export default displaySlice.reducer;
 
-export const selectOperations = state => state.mathOperations;
-export const selectResult = state => state.result;
+export const selectOperations = state => state.display.mathOperations;
+export const selectResult = state => state.display.result;
