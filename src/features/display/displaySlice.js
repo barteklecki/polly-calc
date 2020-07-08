@@ -39,8 +39,11 @@ export const displaySlice = createSlice({
             state.displayNumber = -+state.displayNumber + '';
         },
         percentage: state => {
-            state.displayNumber.push('%');
-            console.log('[dispatch: %]');
+            if ( state.displayNumber.slice( -1 ) !== '%' ) {
+                state.displayNumber += '%';
+            } else {
+                state.displayNumber = state.displayNumber.slice( 0, -1 );
+            }
         },
         equals: state => {
             state.mathOperations.push(state.displayNumber);
@@ -57,11 +60,16 @@ export const displaySlice = createSlice({
             }
         },
         addDigit: (state, action) => {
-            if(state.nextOperationFlag) {
+            if( state.nextOperationFlag ) {
                 state.displayNumber = '';
                 state.nextOperationFlag = false;
             }
-            state.displayNumber = +(state.displayNumber + action.payload) + '';
+            let perc = '';
+            if( state.displayNumber.slice(-1) === '%' ) {
+                perc = '%';
+                state.displayNumber = state.displayNumber.slice(0, -1);
+            }
+            state.displayNumber = +(state.displayNumber + action.payload) + perc;
             return
         },
         reset: state => {
