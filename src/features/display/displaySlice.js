@@ -10,41 +10,55 @@ export const displaySlice = createSlice({
     },
     reducers: {
         add: state => {
+            console.log('[dispatch: +]');
             let { mathOperations, result, displayNumber } = state;
             mathOperations.push(displayNumber);
             result = resultCalc(mathOperations);
-            displayNumber = result+'';
+            displayNumber = result + '';
             mathOperations.push('+');
         },
         subtract: state => {
             let { mathOperations, result, displayNumber } = state;
             mathOperations.push(displayNumber);
             result = resultCalc(mathOperations);
-            displayNumber = result+'';
+            displayNumber = result + '';
             mathOperations.push('-');
         },
         multiply: state => {
             let { mathOperations, result, displayNumber } = state;
             mathOperations.push(displayNumber);
             result = resultCalc(mathOperations);
-            displayNumber = result+'';
+            displayNumber = result + '';
             mathOperations.push('*');
         },
         divide: state => {
             let { mathOperations, result, displayNumber } = state;
             mathOperations.push(displayNumber);
             result = resultCalc(mathOperations);
-            displayNumber = result+'';
+            displayNumber = result + '';
             mathOperations.push('/');
         },
         negative: state => {
-            //
+            state.displayNumber = -+state.displayNumber + '';
         },
         percentage: state => {
-            //
+            state.displayNumber.push('%');
+            console.log('[dispatch: %]');
         },
         equals: state => {
             //
+        },
+        addComma: state => {
+            console.log('[dispatch: comma]');
+            let { displayNumber } = state;
+            if (displayNumber.indexOf('.') === -1) {
+                displayNumber += '.';
+            }
+        },
+        addDigit: (state, action) => {
+            console.log('[dispatch: digit]', state.displayNumber, action.payload);
+            state.displayNumber = +(state.displayNumber + action.payload) + '';
+            return
         },
     },
 });
@@ -117,8 +131,11 @@ export const {
     negative,
     percentage,
     equals,
+    addComma,
+    addDigit,
 } = displaySlice.actions;
 export default displaySlice.reducer;
 
 export const selectOperations = state => state.display.mathOperations;
 export const selectResult = state => state.display.result;
+export const selectDisplayNumber = state => state.display.displayNumber;

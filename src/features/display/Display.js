@@ -1,16 +1,16 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { selectOperations, selectResult } from './displaySlice';
+import { selectOperations, selectDisplayNumber } from './displaySlice';
 
 const Display = () => {
     const operations = useSelector(selectOperations);
-    const result = useSelector(selectResult);
+    const displayNumber = useSelector(selectDisplayNumber);
 
     return (
         <div>
             <p>M: {operations}</p>
-            <p>R: {result}</p>
+            <p>R: {displayNumber}</p>
         </div>
     );
 }
