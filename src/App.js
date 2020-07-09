@@ -11,8 +11,10 @@ function App() {
     <div className="App">
       <header className="App-header">
         <table className="content">
-          <Display />
-          <Keyboard />
+          <tbody>
+            <Display />
+            <Keyboard />
+          </tbody>
         </table>
       </header>
     </div>
