@@ -41,7 +41,7 @@ const Keyboard = () => {
             <br/>
             <button onClick={()=> dispatch(addDigit(0))}> 0 </button>
             <button onClick={()=> dispatch(addComma())}> , </button>
-            <button onClick={()=> dispatch(equals())}> = </button>
+            <button onClick={()=> dispatch(equals())} id="equals"> = </button>
         </div>
     );
 }

@@ -5,17 +5,6 @@
   background: linear-gradient(300deg, #ff9768, #9156e2);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-float infinite 3s ease-in-out;
-  }
-}
-
 .App-header {
   min-height: 100vh;
   display: flex;
@@ -25,18 +14,28 @@
   font-size: calc(10px + 2vmin);
 }
 
-.App-link {
-  color: rgb(112, 76, 182);
+button {
+  width: 3rem;
+  height: 3rem;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-bottom: 4px;
+  font-size: 17px;
+  border: 0px;
+  color: #17141b;
+  cursor: pointer;
+  background-color: #fcfcfc;
+  background-color: -webkit-linear-gradient(135, #f4f4f4, #af4d4d);
 }
 
-@keyframes App-logo-float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(10px)
-  }
-  100% {
-    transform: translateY(0px)
-  }
+#equals {
+  width: 6rem;
+}
+
+.button:hover, .button:focus {
+  border: 2px solid #704cb666;
+}
+
+.button:active {
+  background-color: rgba(112, 76, 182, 0.2);
 }
