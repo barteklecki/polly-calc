@@ -9,11 +9,12 @@ const Display = () => {
     const displayNumber = useSelector(selectDisplayNumber);
 
     return (
-        <div className="display">
-            <p>M: {operations}</p>
-            <p>DN: {displayNumber}</p>
-            <p>R: {result}</p>
-        </div>
+        <tr>
+            <td className="display" colspan="4">
+                <p className="math">&nbsp;{operations}</p>
+                <p className="number">{displayNumber}</p>
+            </td>
+        </tr>
     );
 }
 

@@ -14,6 +14,10 @@
 }
   
 .content {
+    border-spacing: 0px;
+    border-collapse: collapse;
+    border-radius: 10px;
+    padding: 100px;
 
     p {
         padding: 0px;
@@ -21,23 +25,42 @@
         margin-block-start: 0em;
         margin-block-end: 0em;
     }
+
+    &:last-child tr:last-child {
+        border-radius: 0.6em;
+    }
 }
   
 .display {
     width: 100%;
     color: white;
+    font-weight: 200;
     background-color: #1b1b1b;
+
+    p {
+        text-align: right;
+        margin: 0.5rem 1rem;
+    }
+
+    .math {
+        color: #da8b99;
+        font-size: smaller;
+    }
+
+    .number {
+        font-size: 2rem;
+    }
 }
   
 .button {
-    display: inline-block;
-    line-height: normal;
-    margin: 0px;
     width: 4rem;
     height: 4rem;
-    font-size: 17px;
-    border: 0px;
+    margin: 0px;
     color: #1b1b1b;
+    font-size: 17px;
+    line-height: 4rem;
+    border: 0px;
+
     cursor: pointer;
     background-color: #fcfcfc;
     background-image: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(244,244,244,1) 100%);
@@ -51,7 +74,6 @@
 }
   
 .equals {
-    width: 8rem;
     color: #ffffff;
     background-color: #e25b8e;
     background-image: none;

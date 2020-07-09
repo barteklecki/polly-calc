@@ -18,31 +18,37 @@ const Keyboard = () => {
     const dispatch = useDispatch();
 
     return (
-        <div>
-            <div className={'button'} onClick={()=> dispatch(percentage())}> % </div>
-            <div className={'button'} onClick={()=> dispatch(negative())}>+/-</div>
-            <div className={'button'} onClick={()=> dispatch(reset())}> C </div>
-            <div className={'button operation'} onClick={()=> dispatch(divide())}> / </div>
-            <br/>
-            <div className={'button'} onClick={()=> dispatch(addDigit(7))}> 7 </div>
-            <div className={'button'} onClick={()=> dispatch(addDigit(8))}> 8 </div>
-            <div className={'button'} onClick={()=> dispatch(addDigit(9))}> 9 </div>
-            <div className={'button operation'} onClick={()=> dispatch(multiply())}> * </div>
-            <br/>
-            <div className={'button'} onClick={()=> dispatch(addDigit(4))}> 4 </div>
-            <div className={'button'} onClick={()=> dispatch(addDigit(5))}> 5 </div>
-            <div className={'button'} onClick={()=> dispatch(addDigit(6))}> 6 </div>
-            <div className={'button operation'} onClick={()=> dispatch(subtract())}> - </div>
-            <br/>
-            <div className={'button'} onClick={()=> dispatch(addDigit(1))}> 1 </div>
-            <div className={'button'} onClick={()=> dispatch(addDigit(2))}> 2 </div>
-            <div className={'button'} onClick={()=> dispatch(addDigit(3))}> 3 </div>
-            <div className={'button operation'} onClick={()=> dispatch(add())}> + </div>
-            <br/>
-            <div className={'button'} onClick={()=> dispatch(addDigit(0))}> 0 </div>
-            <div className={'button'} onClick={()=> dispatch(addComma())}> , </div>
-            <div className={'button equals'} onClick={()=> dispatch(equals())}> = </div>
-        </div>
+        <>
+            <tr>
+                <td className={'button'} onClick={()=> dispatch(percentage())}> % </td>
+                <td className={'button'} onClick={()=> dispatch(negative())}>+/-</td>
+                <td className={'button'} onClick={()=> dispatch(reset())}> C </td>
+                <td className={'button operation'} onClick={()=> dispatch(divide())}> / </td>
+            </tr>
+            <tr>
+                <td className={'button'} onClick={()=> dispatch(addDigit(7))}> 7 </td>
+                <td className={'button'} onClick={()=> dispatch(addDigit(8))}> 8 </td>
+                <td className={'button'} onClick={()=> dispatch(addDigit(9))}> 9 </td>
+                <td className={'button operation'} onClick={()=> dispatch(multiply())}> * </td>
+            </tr>
+            <tr>
+                <td className={'button'} onClick={()=> dispatch(addDigit(4))}> 4 </td>
+                <td className={'button'} onClick={()=> dispatch(addDigit(5))}> 5 </td>
+                <td className={'button'} onClick={()=> dispatch(addDigit(6))}> 6 </td>
+                <td className={'button operation'} onClick={()=> dispatch(subtract())}> - </td>
+            </tr>
+            <tr>
+                <td className={'button'} onClick={()=> dispatch(addDigit(1))}> 1 </td>
+                <td className={'button'} onClick={()=> dispatch(addDigit(2))}> 2 </td>
+                <td className={'button'} onClick={()=> dispatch(addDigit(3))}> 3 </td>
+                <td className={'button operation'} onClick={()=> dispatch(add())}> + </td>
+            </tr>
+            <tr>
+                <td className={'button'} onClick={()=> dispatch(addDigit(0))}> 0 </td>
+                <td className={'button'} onClick={()=> dispatch(addComma())}> . </td>
+                <td className={'button equals'} onClick={()=> dispatch(equals())} colspan="2"> = </td>
+            </tr>
+        </>
     );
 }
 
