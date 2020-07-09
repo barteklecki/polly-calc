@@ -46,7 +46,7 @@ const Keyboard = () => {
             <tr>
                 <td className={'button'} onClick={()=> dispatch(addDigit(0))}> 0 </td>
                 <td className={'button'} onClick={()=> dispatch(addComma())}> . </td>
-                <td className={'button equals'} onClick={()=> dispatch(equals())} colspan="2"> = </td>
+                <td className={'button equals'} onClick={()=> dispatch(equals())} colSpan="2"> = </td>
             </tr>
         </>
     );

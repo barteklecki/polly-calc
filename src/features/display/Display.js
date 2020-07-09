@@ -19,7 +19,7 @@ const Display = () => {
 
     return (
         <tr>
-            <td className="display" colspan="4">
+            <td className="display" colSpan="4">
                 <p className="math">&nbsp;{limitText(operations.join(''), chLimit)}</p>
                 <p className={displayNumber.length > 9 ? 'numberLimited' : 'number'}>{displayNumber}</p>
             </td>
