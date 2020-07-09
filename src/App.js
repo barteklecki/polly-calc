@@ -10,8 +10,14 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Display />
-        <Keyboard />
+        <table className="content">
+          <tr><td>
+          <Display />
+          </td></tr>
+          <tr><td>
+          <Keyboard />
+          </td></tr>
+        </table>
       </header>
     </div>
   );

@@ -1,0 +1,64 @@
+.App {
+    text-align: center;
+    background-color: #ff9768;
+    background: linear-gradient(300deg, #ff9768, #9156e2);
+}
+  
+.App-header {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+}
+  
+.content {
+
+    p {
+        padding: 0px;
+        border-spacing: 0px;
+        margin-block-start: 0em;
+        margin-block-end: 0em;
+    }
+}
+  
+.display {
+    width: 100%;
+    color: white;
+    background-color: #1b1b1b;
+}
+  
+.button {
+    display: inline-block;
+    line-height: normal;
+    margin: 0px;
+    width: 4rem;
+    height: 4rem;
+    font-size: 17px;
+    border: 0px;
+    color: #1b1b1b;
+    cursor: pointer;
+    background-color: #fcfcfc;
+    background-image: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(244,244,244,1) 100%);
+
+    &:hover, &.button:focus {
+        filter: brightness(95%);
+    }
+    &:active {
+        filter: brightness(80%);
+    }
+}
+  
+.equals {
+    width: 8rem;
+    color: #ffffff;
+    background-color: #e25b8e;
+    background-image: none;
+}
+
+.operation {
+    color: #ffffff;
+    background-color: #7c77d2;
+    background-image: linear-gradient(135deg, #7c77d2, #645fc5);;
+}

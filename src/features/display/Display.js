@@ -9,7 +9,7 @@ const Display = () => {
     const displayNumber = useSelector(selectDisplayNumber);
 
     return (
-        <div>
+        <div className="display">
             <p>M: {operations}</p>
             <p>DN: {displayNumber}</p>
             <p>R: {result}</p>

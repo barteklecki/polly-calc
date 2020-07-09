@@ -19,29 +19,29 @@ const Keyboard = () => {
 
     return (
         <div>
-            <button onClick={()=> dispatch(percentage())}> % </button>
-            <button onClick={()=> dispatch(negative())}>+/-</button>
-            <button onClick={()=> dispatch(reset())}> C </button>
-            <button onClick={()=> dispatch(divide())}> / </button>
+            <div className={'button'} onClick={()=> dispatch(percentage())}> % </div>
+            <div className={'button'} onClick={()=> dispatch(negative())}>+/-</div>
+            <div className={'button'} onClick={()=> dispatch(reset())}> C </div>
+            <div className={'button operation'} onClick={()=> dispatch(divide())}> / </div>
             <br/>
-            <button onClick={()=> dispatch(addDigit(7))}> 7 </button>
-            <button onClick={()=> dispatch(addDigit(8))}> 8 </button>
-            <button onClick={()=> dispatch(addDigit(9))}> 9 </button>
-            <button onClick={()=> dispatch(multiply())}> * </button>
+            <div className={'button'} onClick={()=> dispatch(addDigit(7))}> 7 </div>
+            <div className={'button'} onClick={()=> dispatch(addDigit(8))}> 8 </div>
+            <div className={'button'} onClick={()=> dispatch(addDigit(9))}> 9 </div>
+            <div className={'button operation'} onClick={()=> dispatch(multiply())}> * </div>
             <br/>
-            <button onClick={()=> dispatch(addDigit(4))}> 4 </button>
-            <button onClick={()=> dispatch(addDigit(5))}> 5 </button>
-            <button onClick={()=> dispatch(addDigit(6))}> 6 </button>
-            <button onClick={()=> dispatch(subtract())}> - </button>
+            <div className={'button'} onClick={()=> dispatch(addDigit(4))}> 4 </div>
+            <div className={'button'} onClick={()=> dispatch(addDigit(5))}> 5 </div>
+            <div className={'button'} onClick={()=> dispatch(addDigit(6))}> 6 </div>
+            <div className={'button operation'} onClick={()=> dispatch(subtract())}> - </div>
             <br/>
-            <button onClick={()=> dispatch(addDigit(1))}> 1 </button>
-            <button onClick={()=> dispatch(addDigit(2))}> 2 </button>
-            <button onClick={()=> dispatch(addDigit(3))}> 3 </button>
-            <button onClick={()=> dispatch(add())}> + </button>
+            <div className={'button'} onClick={()=> dispatch(addDigit(1))}> 1 </div>
+            <div className={'button'} onClick={()=> dispatch(addDigit(2))}> 2 </div>
+            <div className={'button'} onClick={()=> dispatch(addDigit(3))}> 3 </div>
+            <div className={'button operation'} onClick={()=> dispatch(add())}> + </div>
             <br/>
-            <button onClick={()=> dispatch(addDigit(0))}> 0 </button>
-            <button onClick={()=> dispatch(addComma())}> , </button>
-            <button onClick={()=> dispatch(equals())} id="equals"> = </button>
+            <div className={'button'} onClick={()=> dispatch(addDigit(0))}> 0 </div>
+            <div className={'button'} onClick={()=> dispatch(addComma())}> , </div>
+            <div className={'button equals'} onClick={()=> dispatch(equals())}> = </div>
         </div>
     );
 }
