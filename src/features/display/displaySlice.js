@@ -53,7 +53,7 @@ export const displaySlice = createSlice({
         equals: state => {
             state.mathOperations.push(state.displayNumber);
             state.result = resultCalc(state.mathOperations);
-            state.displayNumber = state.result;
+            state.displayNumber = state.result+'';
             state.mathOperations = [];
             state.nextOperationFlag = false;
         },

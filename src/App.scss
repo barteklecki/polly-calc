@@ -1,7 +1,9 @@
+$base_size: 4.5;
+
 .App {
     text-align: center;
     background-color: #ff9768;
-    background: linear-gradient(300deg, #ff9768, #9156e2);
+    background: linear-gradient(300deg, #ff9768, #9156e1);
 }
   
 .App-header {
@@ -17,7 +19,6 @@
     border-spacing: 0px;
     border-collapse: collapse;
     border-radius: 10px;
-    padding: 100px;
     box-shadow: 10px 10px 20px -10px rgba(0,0,0,0.1);
 
     p {
@@ -48,33 +49,48 @@
 }
   
 .display {
-    width: 100%;
+    width: $base_size*4+rem;
+    max-width: $base_size*4+rem;
+    height: $base_size*1.5+rem;
+    padding-bottom: $base_size/8+rem;
+    padding-left: $base_size/8+rem;
+    padding-right: $base_size/8+rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     color: white;
     font-weight: 200;
     background-color: #1b1b1b;
 
     p {
         text-align: right;
-        margin: 0.5rem 1rem;
+        margin: 0rem $base_size/5+rem;
+        line-height: $base_size/2+rem;
     }
 
     .math {
-        color: #da8b99;
-        font-size: smaller;
+        color: #d98192;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: $base_size/2+rem;
     }
 
     .number {
-        font-size: 2rem;
+        font-size: 50px;
+    }
+
+    .numberLimited {
+        font-size: 25px;
     }
 }
   
 .button {
-    width: 4rem;
-    height: 4rem;
+    width: $base_size+rem;
+    height: $base_size+rem;
     margin: 0px;
     color: #1b1b1b;
-    font-size: 17px;
-    line-height: 4rem;
+    font-size: 22px;
+    line-height: $base_size+rem;
     border: 0px;
 
     cursor: pointer;
