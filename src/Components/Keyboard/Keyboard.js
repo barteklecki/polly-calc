@@ -45,7 +45,7 @@ const config = [
 const Keyboard = () => {
     const dispatch = useDispatch();
 
-    const printKeyboard = config.map( row => {
+    const printKeyboard = config.map( (row, index) => {
         const rowPrint = row.map(key => 
                 <td
                     key = {key.id}
@@ -56,7 +56,7 @@ const Keyboard = () => {
                 { key.name }
                 </td> 
         );
-        return <tr>{rowPrint}</tr> ;
+        return <tr key={'row'+index}>{rowPrint}</tr> ;
     });
 
     return printKeyboard;
