@@ -1,17 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { selectOperations, selectResult, selectDisplayNumber } from './displaySlice';
+import { selectOperations, selectDisplayNumber } from './displaySlice';
+import { limitText } from '../../utils';
 
 const chLimit = 26;
-
-const limitText = ( text, limit ) => {
-    if ( text.length > limit ) {
-        return '...' + text.slice(text.length - chLimit);
-    } 
-    return text;
-
-}
 
 const Display = () => {
     const operations = useSelector(selectOperations);
