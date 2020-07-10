@@ -1,9 +1,11 @@
 # Polly Calc
 
 Simple four-banger calculator web app .
-To build app use: npm run build.
+To build app use: 
+`npm run build`
 
 ## [Live Demo](https://master.d3nhrzgp98zmrf.amplifyapp.com/)
+(AWS Amplify continuous deploy)
 
 Todo:
 - [ ] dynamically switching themes, f.e. for people with sight impairments (high contrast)

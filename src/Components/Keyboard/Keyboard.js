@@ -51,7 +51,7 @@ const Keyboard = () => {
                     key = {key.id}
                     className={key.classes}
                     onClick={() => dispatch(key.dispatch(key.payload ? key.payload : null))}
-                    colSpan={key.colSpan ? key.colSpan : 1}
+                    colSpan={key.colSpan ? key.colSpan : null}
                 >
                 { key.name }
                 </td> 
