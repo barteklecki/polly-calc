@@ -1,6 +1,9 @@
 # Polly Calc
 
-Simple four-banger calculator web app 
+Simple four-banger calculator web app .
+To build app use: npm run build.
+
+## [Live Demo](https://master.d3nhrzgp98zmrf.amplifyapp.com/)
 
 Todo:
 - [ ] dynamically switching themes, f.e. for people with sight impairments (high contrast)
