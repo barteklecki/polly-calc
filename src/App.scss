@@ -1,78 +1,60 @@
-$base_size: 4.5;
+$border_radius: 0.5em;
 
 .App {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
     text-align: center;
     background-color: #ff9768;
     background: linear-gradient(300deg, #ff9768, #9156e1);
 }
-  
-.App-header {
-    min-height: 100vh;
+
+.container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
+    align-items: center;
 }
-  
-.content {
-    border-spacing: 0px;
-    border-collapse: collapse;
-    border-radius: 10px;
-    box-shadow: 10px 10px 20px -10px rgba(0,0,0,0.1);
 
-    p {
-        padding: 0px;
-        border-spacing: 0px;
-        margin-block-start: 0em;
-        margin-block-end: 0em;
-    }
+.calc {
+    width: 95vw;
+    height: 154vw;
+    border-radius: 0.5em;
+}
 
-    tbody {
-        tr:last-child {
-            td:first-child { 
-                border-bottom-left-radius: 0.3em;
-            }
-            td:last-child { 
-                border-bottom-right-radius: 0.3em;
-            }
-        } 
-        tr:first-child {
-            td:first-child { 
-                border-top-left-radius: 0.3em;
-            }
-            td:last-child { 
-                border-top-right-radius: 0.3em;
-            }
-        } 
+@media (min-width: 500px) {
+    .calc {
+        width: 370px;
+        height: 600px;
     }
 }
-  
+
 .display {
-    width: $base_size*4+rem;
-    max-width: $base_size*4+rem;
-    height: $base_size*1.5+rem;
-    padding-bottom: $base_size/8+rem;
-    padding-left: $base_size/8+rem;
-    padding-right: $base_size/8+rem;
+    display: flex;
+    align-content: center;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     color: white;
     font-weight: 200;
     background-color: #1b1b1b;
+    padding: 2rem 2rem;
 
     p {
+        display: block;
         text-align: right;
-        margin: 0rem $base_size/5+rem;
-        line-height: $base_size/2+rem;
+        margin: 0rem;
+        line-height: 3.5rem;
     }
 
     .math {
         color: #d98192;
         font-size: 18px;
         font-weight: 400;
-        line-height: $base_size/2+rem;
+        line-height: 2rem;
     }
 
     .number {
@@ -83,27 +65,40 @@ $base_size: 4.5;
         font-size: 23px;
     }
 }
-  
-.button {
-    width: $base_size+rem;
-    height: $base_size+rem;
+
+.keyboard {
+    display: grid;
+    width: 100%;
+    height: 77%;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 0px;
+    border: none;
+}
+
+.key {
+    place-self: stretch;
     margin: 0px;
+    border: none;
+    outline: none;
     color: #1b1b1b;
     font-size: 22px;
     font-weight: 200;
-    line-height: $base_size+rem;
-    border: 0px;
-
     cursor: pointer;
     background-color: #fcfcfc;
-    background-image: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(244,244,244,1) 100%);
+    background: linear-gradient(130deg, #ffffff 0%, #f4f4f4 100%);
 
-    &:hover, &.button:focus {
+    &:hover, &:focus {
         filter: brightness(95%);
+        transition: 0.3s ease-in-out;
     }
     &:active {
         filter: brightness(80%);
     }
+}
+
+.span-2 {
+    grid-column: span 2;
 }
 
 .equals {
@@ -115,5 +110,23 @@ $base_size: 4.5;
 .operation {
     color: #ffffff;
     background-color: #7c77d2;
-    background-image: linear-gradient(135deg, #7c77d2, #645fc5);;
+    background-image: linear-gradient(135deg, #7c77d2, #7671d3);;
 }
+
+.tl-rad {
+    border-top-left-radius: $border_radius;
+}
+
+.tr-rad {
+    border-top-right-radius: $border_radius;
+}
+
+.bl-rad {
+    border-bottom-left-radius: $border_radius;
+}
+
+.br-rad {
+    border-bottom-right-radius: $border_radius;
+}
+
+

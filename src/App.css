@@ -1,86 +1,72 @@
 .App {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   text-align: center;
   background-color: #ff9768;
   background: linear-gradient(300deg, #ff9768, #9156e1);
 }
 
-.App-header {
-  min-height: 100vh;
+.container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  font-size: calc(10px + 2vmin);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.content {
-  border-spacing: 0px;
-  border-collapse: collapse;
-  border-radius: 10px;
-  -webkit-box-shadow: 10px 10px 20px -10px rgba(0, 0, 0, 0.1);
-          box-shadow: 10px 10px 20px -10px rgba(0, 0, 0, 0.1);
+.calc {
+  width: 95vw;
+  height: 154vw;
+  border-radius: 0.5em;
 }
 
-.content p {
-  padding: 0px;
-  border-spacing: 0px;
-  -webkit-margin-before: 0em;
-          margin-block-start: 0em;
-  -webkit-margin-after: 0em;
-          margin-block-end: 0em;
-}
-
-.content tbody tr:last-child td:first-child {
-  border-bottom-left-radius: 0.3em;
-}
-
-.content tbody tr:last-child td:last-child {
-  border-bottom-right-radius: 0.3em;
-}
-
-.content tbody tr:first-child td:first-child {
-  border-top-left-radius: 0.3em;
-}
-
-.content tbody tr:first-child td:last-child {
-  border-top-right-radius: 0.3em;
+@media (min-width: 500px) {
+  .calc {
+    width: 370px;
+    height: 600px;
+  }
 }
 
 .display {
-  width: 18rem;
-  max-width: 18rem;
-  height: 6.75rem;
-  padding-bottom: 0.5625rem;
-  padding-left: 0.5625rem;
-  padding-right: 0.5625rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   color: white;
   font-weight: 200;
   background-color: #1b1b1b;
+  padding: 2rem 2rem;
 }
 
 .display p {
+  display: block;
   text-align: right;
-  margin: 0rem 0.9rem;
-  line-height: 2.25rem;
+  margin: 0rem;
+  line-height: 3.5rem;
 }
 
 .display .math {
   color: #d98192;
   font-size: 18px;
   font-weight: 400;
-  line-height: 2.25rem;
+  line-height: 2rem;
 }
 
 .display .number {
@@ -91,28 +77,46 @@
   font-size: 23px;
 }
 
-.button {
-  width: 4.5rem;
-  height: 4.5rem;
+.keyboard {
+  display: -ms-grid;
+  display: grid;
+  width: 100%;
+  height: 77%;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  -ms-grid-rows: (1fr)[5];
+      grid-template-rows: repeat(5, 1fr);
+  gap: 0px;
+  border: none;
+}
+
+.key {
+  place-self: stretch;
   margin: 0px;
+  border: none;
+  outline: none;
   color: #1b1b1b;
   font-size: 22px;
   font-weight: 200;
-  line-height: 4.5rem;
-  border: 0px;
   cursor: pointer;
   background-color: #fcfcfc;
-  background-image: linear-gradient(135deg, white 0%, #f4f4f4 100%);
+  background: linear-gradient(130deg, #ffffff 0%, #f4f4f4 100%);
 }
 
-.button:hover, .button.button:focus {
+.key:hover, .key:focus {
   -webkit-filter: brightness(95%);
           filter: brightness(95%);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
-.button:active {
+.key:active {
   -webkit-filter: brightness(80%);
           filter: brightness(80%);
+}
+
+.span-2 {
+  grid-column: span 2;
 }
 
 .equals {
@@ -124,6 +128,22 @@
 .operation {
   color: #ffffff;
   background-color: #7c77d2;
-  background-image: linear-gradient(135deg, #7c77d2, #645fc5);
+  background-image: linear-gradient(135deg, #7c77d2, #7671d3);
+}
+
+.tl-rad {
+  border-top-left-radius: 0.5em;
+}
+
+.tr-rad {
+  border-top-right-radius: 0.5em;
+}
+
+.bl-rad {
+  border-bottom-left-radius: 0.5em;
+}
+
+.br-rad {
+  border-bottom-right-radius: 0.5em;
 }
 /*# sourceMappingURL=App.css.map */
