@@ -22,7 +22,7 @@ const config = [
         { id: 5, name: '7', classes: 'key', dispatch: addDigit, payload: '7' },
         { id: 6, name: '8', classes: 'key', dispatch: addDigit, payload: '8' },
         { id: 7, name: '9', classes: 'key', dispatch: addDigit, payload: '9' },
-        { id: 8, name: '*', classes: 'key operation', dispatch: multiply },
+        { id: 8, name: 'x', classes: 'key operation', dispatch: multiply },
         { id: 9, name: '4', classes: 'key', dispatch: addDigit, payload: '4' },
         { id: 10, name: '5', classes: 'key', dispatch: addDigit, payload: '5' },
         { id: 11, name: '6', classes: 'key', dispatch: addDigit, payload: '6' },

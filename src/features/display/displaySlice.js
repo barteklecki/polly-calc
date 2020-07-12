@@ -27,7 +27,7 @@ export const displaySlice = createSlice({
         multiply: state => {
             state.mathOperations.push(state.displayNumber);
             state.supportVar = resultCalc(state.mathOperations);
-            state.mathOperations.push('*');
+            state.mathOperations.push('x');
             state.nextOperationFlag = true;
         },
         divide: state => {

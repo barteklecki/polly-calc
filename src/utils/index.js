@@ -5,7 +5,7 @@ export const resultCalc = arr => {
         let temp = percent2Num(arr[i + 1]);
         switch (arr[i]) {
             case '+':
-                if (arr[i + 2] === '*' || arr[i + 2] === '/') {
+                if (arr[i + 2] === 'x' || arr[i + 2] === '/') {
                     tempSum = result;
                     result = +temp;
                     break;
@@ -13,14 +13,14 @@ export const resultCalc = arr => {
                 result += +temp;
                 break;
             case '-':
-                if (arr[i + 2] === '*' || arr[i + 2] === '/') {
+                if (arr[i + 2] === 'x' || arr[i + 2] === '/') {
                     tempSum = result;
                     result = +temp;
                     break;
                 }
                 result -= +temp;
                 break;
-            case '*':
+            case 'x':
                 result *= temp;
                 if (arr[i - 2] === '-') {
                     result = -result;
@@ -38,7 +38,7 @@ export const resultCalc = arr => {
             default:
                 return ' Unknown math operations! ';
         }
-        if (arr[i + 2] !== '*' && arr[i + 2] !== '/') {
+        if (arr[i + 2] !== 'x' && arr[i + 2] !== '/') {
             result += tempSum;
             tempSum = 0;
         }
