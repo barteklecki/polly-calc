@@ -13,6 +13,7 @@ $border_radius: 0.5em;
 .container {
     display: flex;
     width: 100%;
+    min-width: 300px;
     max-width: 1200px;
     height: 100%;
     justify-content: center;
@@ -20,9 +21,9 @@ $border_radius: 0.5em;
 }
 
 .calc {
-    width: 95vw;
-    height: 154vw;
-    border-radius: 0.5em;
+    width: 90vw;
+    min-width: 300px;
+    height: 146vw;
 }
 
 @media (min-width: 500px) {
@@ -33,15 +34,13 @@ $border_radius: 0.5em;
 }
 
 .display {
-    display: flex;
-    align-content: center;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     color: white;
-    font-weight: 200;
+    font-weight: 300;
     background-color: #1b1b1b;
-    padding: 2rem 2rem;
+    padding: 1.5rem 2rem;
 
     p {
         display: block;
@@ -82,8 +81,9 @@ $border_radius: 0.5em;
     border: none;
     outline: none;
     color: #1b1b1b;
-    font-size: 22px;
-    font-weight: 200;
+    font-family: inherit;
+    font-size: 23px;
+    font-weight: 300;
     cursor: pointer;
     background-color: #fcfcfc;
     background: linear-gradient(130deg, #ffffff 0%, #f4f4f4 100%);

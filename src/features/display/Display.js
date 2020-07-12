@@ -12,7 +12,7 @@ const Display = () => {
 
     return (
         <div className="display tl-rad tr-rad">
-            <p className="math">&nbsp;{limitText(operations.join(''), chLimit)}</p><br/>
+            <p className="math">&nbsp;{limitText(operations.join(''), chLimit)}</p>
             <p className={displayNumber.length > 8 ? 'numberLimited' : 'number'}>{displayNumber}</p>
         </div>
     );
